@@ -17,9 +17,24 @@ import ReactDom from 'react-dom';
 
 class App extends React.Component {
   render() {
+
+
+      let values = { a: 1 };
+
+      function impureFunction ( items ) {
+        var b = 1;
+
+        items.a = items.a * b + 2;
+
+        return items.a;
+      }
+
+      var c = impureFunction( values );
+      console.log('c', values);
+
     return (
       <div>
-        <h1>Heys {this.props.hey}!</h1>
+        <h1>Heys! {values.a}</h1>
       </div>
     )
   }
