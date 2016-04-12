@@ -1,0 +1,19 @@
+.logo
+    $width: 184px
+    $height: 51px
+    $ratio: $width / $height
+
+    +inline-top
+    width: $width
+    height: $height
+    margin: 16px 20px 0 0
+    background: url(../images/logo-color.png) no-repeat
+    background-image: url(../images/logo-color.svg)
+    background-position: center center
+    background-size: 100%
+
+
+    +below(large-desktop)
+        width: 120px
+        height: 120px / $ratio
+        margin: 21px 20px 0 0

@@ -1,0 +1,144 @@
+//#
+
+// text size ----------
+
+._text-medium
+    font-size: 1.6rem
+
+._text-large
+    font-size: 1.8rem
+
+._text-small
+    font-size: 1.2rem
+
+._text-extrasmall
+    font-size: 1rem
+
+// text weight ----------
+
+._text-light
+    font-weight: 200
+
+._text-medium
+    font-weight: 400
+
+._text-strong
+    font-weight: 600
+
+// text transform's -------
+
+._lowercase
+    text-transform: lowercase
+
+._uppercase
+    text-transform: uppercase
+
+// colors ----------
+
+._color-primary
+    color: $primary
+
+._color-red
+    color: $red
+
+._color-yellow
+    color: $yellow
+
+// text align ----------
+
+._text-center
+    text-align: center
+
+._text-left
+    text-align: left
+
+._text-right
+    text-align: right
+
+// margin ----------
+
+._margin-bottom
+    margin-bottom: 2rem
+
+._margin-bottom-small
+    margin-bottom: 1rem
+
+._margin-bottom-remove
+    margin-bottom: 0
+
+._margin-top
+    margin-top: 2rem
+
+._margin-top-small
+    margin-top: 1rem
+
+._margin-top-remove
+    margin-bottom: 0
+
+// float ----------
+
+._pull-left
+    float: left
+
+._pull-right
+    float: right
+
+// hide's & show's ----------
+
+._hide
+    display: none !important
+    @media screen and (max-width: $mobile-max)
+        &-mobile
+            display: none !important
+
+    @media screen and (max-width: $phablet-max)
+        &-phablet
+            display: none !important
+
+    @media screen and (max-width: $tablet-max)
+        &-tablet
+            display: none !important
+
+    @media screen and (max-width: $desktop-max)
+        &-desktop
+            display: none !important
+
+// show's ...
+
+%hide
+    display: none
+
+._show
+    display: block !important
+
+    &-mobile
+        @media screen and (min-width: $phablet)
+            display: none !important
+
+    &-phablet
+        @media screen and (min-width: $tablet)
+            display: none !important
+
+    &-tablet
+        @media screen and (min-width: $desktop)
+            display: none !important
+
+    &-desktop
+        @media screen and (min-width: $large-desktop)
+            display: none !important
+
+
+// flex helpers
+
+._flex
+    @extend %flex
+
+._flex-center
+    @extend %flex
+    align-items: center
+
+._flex-bottom
+    @extend %flex
+    align-self: flex-end
+
+// others

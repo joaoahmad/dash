@@ -1,0 +1,34 @@
+node_modules
+.sass-cache
+.DS_Store
+
+//-
+
+# User specific & automatically generated files #
+#################################################
+#/app/Config/database.php
+/server/app/tmp
+/server/lib/Cake/Console/Templates/skel/tmp/
+#/server/plugins
+/server/vendors
+/server/build
+/server/dist
+/server/tags
+*.mo
+
+# IDE and editor specific files #
+#################################
+/nbproject
+.idea
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+!icons
+ehthumbs.db
+Thumbs.db

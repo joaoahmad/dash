@@ -1,0 +1,69 @@
+.search-form
+    > .field
+        position: absolute
+        height: 42px
+        line-height: 42px
+        padding: 0 42px 0 17px
+        font-weight: 500
+        border: none
+        z-index: 1
+        font-size: 1.6rem
+        box-sizing: border-box
+
+        +above(breakmenu)
+            width: 0
+            right: 0
+            font-size: 1.2rem
+            opacity: 0
+            visibility: hidden
+            border: solid 2px #f1f1f1
+            transition: .33s ease-out
+
+        +below(breakmenu)
+            display: none
+            width: 100%
+            height: 100%
+            left: 0
+            padding-right: 54px
+
+    > .action
+        position: relative
+        border: none
+        background: none
+        font-size: 1.8rem
+        padding: 0
+        width: 42px
+        color: $dark
+        line-height: 42px
+        z-index: 10
+
+        +above(breakmenu)
+            opacity: .5
+
+        +below(breakmenu)
+            position: absolute
+            right: 0
+
+    &.-open
+        +below(breakmenu)
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            margin: 0
+            z-index: 9999
+
+        > .field
+            +above(breakmenu)
+                width: 280px
+                opacity: 1
+                visibility: visible
+
+            +below(breakmenu)
+                display: block
+
+        > .action
+            +below(breakmenu)
+                top: 10px
+                right: 8px
