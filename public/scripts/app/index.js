@@ -2,6 +2,12 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+import App from './components/App';
+
+let store = createStore(rootReducer)
 
 // import Router, {Route} from 'react-router';
 // import history from './history';
@@ -15,29 +21,15 @@ import ReactDom from 'react-dom';
 //
 //
 
-class App extends React.Component {
-  render() {
+ReactDom.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
+)
 
 
-      let values = { a: 1 };
-
-      function impureFunction ( items ) {
-        var b = 1;
-
-        items.a = items.a * b + 2;
-
-        return items.a;
-      }
-
-      var c = impureFunction( values );
-      console.log('c', values);
-
-    return (
-      <div>
-        <h1>Heys! {values.a}</h1>
-      </div>
-    )
-  }
-}
-
-ReactDom.render(<App/>, document.getElementById('app'));
+// ReactDom.render(
+//         <App />,
+//     document.getElementById('app')
+// )
