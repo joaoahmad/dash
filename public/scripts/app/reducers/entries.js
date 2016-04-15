@@ -1,9 +1,9 @@
 const entry = (state, action) => {
   switch (action.type) {
     case 'ADD_ENTRY':
-        console.log('hey');
       return {
-          name: entry
+          id: action.id,
+          name: action.name,
       }
     default:
       return state

@@ -3,12 +3,17 @@ import React, { PropTypes } from 'react';
 
 class EntriesTable extends React.Component {
 
+    constructor(props){
+        super(props)
+    }
+
     componentDidMount(){
     }
 
     render(){
+        console.log('entries', this.props.entries);
         var entries = this.props.entries.map( entry => {
-            return <div key={entry}>{entry}</div>
+            return <div key={entry.id}>{entry.name}</div>
         })
         return (
             <div>
@@ -18,7 +23,6 @@ class EntriesTable extends React.Component {
     }
 }
 
-EntriesTable.propTypes = { entries: PropTypes.array }
-// EntriesTable.defaultProps = { entries: [] }
+// EntriesTable.propTypes = { entries: PropTypes.array }
 
 module.exports = EntriesTable;

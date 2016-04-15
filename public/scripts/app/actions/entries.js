@@ -1,7 +1,8 @@
-
-export const addEntry = (entry) => {
+let nextEntryId = 0
+export const addEntry = (name) => {
   return {
     type: 'ADD_ENTRY',
-    entry
+    id: nextEntryId++,
+    name
   }
 }
