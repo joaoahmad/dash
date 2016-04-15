@@ -1,28 +1,21 @@
 import React, { PropTypes } from 'react';
 
 
-class EntriesTable extends React.Component {
-
-    constructor(props){
-        super(props)
-    }
-
-    componentDidMount(){
-    }
+export default class EntriesTable extends React.Component {
 
     render(){
-        console.log('entries', this.props.entries);
-        var entries = this.props.entries.map( entry => {
-            return <div key={entry.id}>{entry.name}</div>
-        })
         return (
-            <div>
-                {entries}
-            </div>
+            <ul>
+                {this.props.entries.map((entry, i) =>
+                    <li key={i}>{entry.name}</li>
+                )}
+            </ul>
         )
     }
 }
 
-// EntriesTable.propTypes = { entries: PropTypes.array }
+EntriesTable.propTypes = {
+  entries: PropTypes.array.isRequired
+}
 
-module.exports = EntriesTable;
+// module.exports = EntriesTable;
