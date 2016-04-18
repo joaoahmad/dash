@@ -4,12 +4,18 @@ import React, { PropTypes } from 'react';
 export default class EntriesTable extends React.Component {
 
     render(){
+        const { isFetching, entries } = this.props
         return (
-            <ul>
-                {this.props.entries.map((entry, i) =>
-                    <li key={i}>{entry.name}</li>
-                )}
-            </ul>
+            <div>
+                {isFetching &&
+                    <div>Loading...</div>
+                }
+                <ul>
+                    {entries.map((entry, i) =>
+                        <li key={i}>{entry.name}</li>
+                    )}
+                </ul>
+            </div>
         )
     }
 }

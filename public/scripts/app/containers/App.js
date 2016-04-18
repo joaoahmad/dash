@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
 import AddEntry from './AddEntry';
 import EntriesList from './EntriesList';
+import EntriesTable from '../components/EntriesTable';
 import { fetchEntries } from '../actions/entries';
 
 class App extends React.Component {
@@ -11,7 +12,8 @@ class App extends React.Component {
 
     componentDidMount() {
         const { dispatch } = this.props
-        dispatch(fetchEntries())
+        dispatch(fetchEntries());
+        console.log('component → action');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -22,11 +24,12 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <h1>Hey</h1>
                 <AddEntry />
-                <EntriesList />
+                <EntriesTable entries={this.props.entries} />
             </div>
         )
     }
@@ -41,7 +44,7 @@ App.propTypes = {
 function mapStateToProps(state){
     return {
         isFetching: true,
-        entries: []
+        entries: state.entries.items || []
     }
 }
 

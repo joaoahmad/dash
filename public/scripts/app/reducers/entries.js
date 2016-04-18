@@ -17,19 +17,22 @@ const entry = (state, action) => {
 
 const entries = (state = { isFetching: false, items: [] }, action) => {
     switch (action.type) {
+
+        // adding entry
         case 'ADD_ENTRY':
-        return [
-            ...state,
-            entry(undefined, action)
-        ]
+        return Object.assign({}, state, {
+            items: [
+                ...state.items,
+                entry(undefined, action)
+            ]
+        })
+
+        // setting entries
         case 'FETCH_ENTRIES':
         return Object.assign({}, state, {
-            [action.entries]: posts(state[action.entries], action)
+            isFetching: false,
+            items: action.entries
         })
-        //   [
-        //     ...state,
-        //     entry(undefined, action)
-        //   ]
         default:
         return state
     }

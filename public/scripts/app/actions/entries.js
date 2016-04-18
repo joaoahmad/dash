@@ -3,6 +3,7 @@ import axios from 'axios'
 let nextEntryId = 0
 let url = '/entries.json'
 
+// to add entry
 export const addEntry = (name) => {
     return {
         type: 'ADD_ENTRY',
@@ -11,17 +12,14 @@ export const addEntry = (name) => {
     }
 }
 
-function requestEntries(dispatch){
-    return axios.get(url)
-}
-
+// to get all entries
 export function fetchEntries(entry) {
     return dispatch => {
         axios.get(url).then( response => {
-            console.log(response.data);
+            console.log('response',response.data);
             dispatch({
                 type: 'FETCH_ENTRIES',
-                payload: response.data
+                entries: response.data
             })
         })
     }
