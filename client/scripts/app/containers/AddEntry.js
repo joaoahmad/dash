@@ -7,8 +7,6 @@ class AddEntry extends React.Component{
         super(props)
     }
 
-    componentDidMount(){}
-
     render(){
 
         return (

@@ -2,18 +2,10 @@ import React, { PropTypes } from 'react';
 
 export default class Table extends React.Component {
 
-    componentWillMount() {
-        this.props.fetchItems();
-    }
-
     render(){
-        console.log(this.props);
-        const { items, isFetching } = this.props
+        const { items } = this.props
         return (
             <div>
-                {isFetching &&
-                    <div>Loading...</div>
-                }
                 <ul>
                     {items.map((item, i) =>
                         <li key={i}>{item.name}</li>
@@ -25,6 +17,5 @@ export default class Table extends React.Component {
 }
 
 Table.propTypes = {
-    items: PropTypes.array.isRequired,
-    fetchItems: PropTypes.func.isRequired
+    items: PropTypes.array.isRequired
 }
