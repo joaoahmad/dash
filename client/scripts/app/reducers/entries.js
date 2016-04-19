@@ -7,7 +7,7 @@ const entry = (state, action) => {
         }
         case 'FETCH_ENTRIES':
         return Object.assign({}, state, {
-            isFetching: true,
+            isFetching: false,
             items: action.entries,
         })
         default:
@@ -15,19 +15,20 @@ const entry = (state, action) => {
     }
 }
 
-const entries = (state = { isFetching: false, items: [] }, action) => {
+const entries = (state = { isFetching: true, items: [] }, action) => {
     switch (action.type) {
 
-        // adding entry
+        // add entry
         case 'ADD_ENTRY':
         return Object.assign({}, state, {
+            isFetching: false,
             items: [
                 ...state.items,
                 entry(undefined, action)
             ]
         })
 
-        // setting entries
+        // set entries
         case 'FETCH_ENTRIES':
         return Object.assign({}, state, {
             isFetching: false,

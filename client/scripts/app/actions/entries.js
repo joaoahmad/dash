@@ -15,12 +15,14 @@ export const addEntry = (name) => {
 // to get all entries
 export function fetchEntries(entry) {
     return dispatch => {
-        axios.get(url).then( response => {
-            console.log('response',response.data);
-            dispatch({
-                type: 'FETCH_ENTRIES',
-                entries: response.data
+        setTimeout(function(){
+            axios.get(url).then( response => {
+                console.log('response',response.data);
+                dispatch({
+                    type: 'FETCH_ENTRIES',
+                    entries: response.data
+                })
             })
-        })
+        }, 500);
     }
 }
