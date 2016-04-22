@@ -1,0 +1,46 @@
+//#
+
+$focus: #13B1FF
+$invalid: #FF3C62
+
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select
+    display: block
+    width: 100%
+    border-radius: 0
+    border: solid 1px #e1e1e3
+    padding: 6px 10px
+    background: none
+    font-size: 1.4rem
+
+    &:focus
+        border: solid 1px $focus
+
+    &.invalid-field
+        border-color: desaturate($invalid, 20%)
+
+
+.form-row
+    margin: 0 0 25px
+
+    input, textarea, select
+        margin-bottom: 0
+
+form
+    margin: 0
+    .validation-error
+        color: $invalid
+
+label
+    font-size: 1.2rem
+
+textarea
+    resize: vertical
+    height: 100px
+
+fieldset
+    margin: 20px 0
+
+.form-submit-wrapper
+    +cf()
+    width: 100%
+    margin-bottom: 50px

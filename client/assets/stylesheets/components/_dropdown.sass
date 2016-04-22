@@ -1,0 +1,55 @@
+//#
+
+.dropdown
+    position: relative
+
+    .nav
+        a
+
+//----
+
+.dropdown__trigger
+
+//----
+
+.dropdown__content
+    position: absolute
+    top: 100%
+    opacity: 0
+    visibility: hidden
+
+    .u-pull-right &
+        left: initial
+        right: 0
+
+    .dropdown--active &
+        opacity: 1
+        visibility: visible
+
+    .nav
+        padding: 10px 0
+        > li
+        a
+            font-size: 1.2rem
+            font-weight: 400
+            height: auto
+            line-height: 1
+            padding: 10px 20px
+            display: block
+
+//----
+
+.dropdown-box
+    background: #fff
+    box-shadow: 0 1px 2px rgba(0,0,0,.12)
+    border-radius: 2px
+    min-width: 148px
+
+//----
+
+.navbar .dropdown
+    .dropdown__content
+
+//----
+
+// .mui-dropdown-title

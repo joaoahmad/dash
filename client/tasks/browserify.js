@@ -8,13 +8,14 @@ module.exports = function(grunt){
             options: {
                 watch: true,
                 keepAlive: true,
-                transform: [
-                    ['babelify', { "presets": ["es2015", "react"] }]
-                ],
                 plugin: ['livereactload'],
                 browserifyOptions: {
-                    debug: true
-                }
+                    debug: true,
+                    extensions: ['.js']
+                },
+                transform: [
+                    ['babelify', { "presets": ["es2015", "react"] }]
+                ]
             }
         },
 

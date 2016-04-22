@@ -1,17 +1,20 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import classnames from 'classnames';
+import _ from 'lodash';
 
 export default class Loading extends React.Component {
 
-    render(){
-        const { isFetching, children } = this.props
-        return (
-            <div>
-                {isFetching && <div>Loading...</div> || children }
-            </div>
-        )
-    }
-}
+    render() {
 
-Loading.propTypes = {
-    isFetching: PropTypes.bool.isRequired
+        var classes = classnames('loading', 'loading-spin');
+
+        var loading = (
+            <div style={{textAlign: 'center',margin: '20px 0'}} className="loading-wrapper">
+              <div className={classes}></div>
+            </div>
+        );
+
+        return (_.isEmpty(this.props.data)) ? loading : this.props.children ;
+    }
+
 }

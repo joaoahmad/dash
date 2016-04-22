@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
-import AddEntry from '../containers/AddEntry';
-import EntriesList from '../containers/EntriesList';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import Content from './Content';
+// import AddEntry from '../containers/AddEntry';
+// import EntriesList from '../containers/EntriesList';
 
 class App extends React.Component {
     constructor(props){
@@ -10,10 +13,12 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Hey</h1>
-                <AddEntry />
-                <EntriesList />
+            <div id="layout" ref="layout">
+                <Navbar ref="navbar" />
+                <Sidebar ref="sidebar" />
+                <Content ref="content" >
+                    {this.props.children}
+                </Content>
             </div>
         )
     }

@@ -1,0 +1,37 @@
+//#
+
+$padding: 30px
+$border: #f0f0f0
+
+table
+    thead
+    tbody
+    tfooter
+        
+.table
+    width: 100%
+    background-color: #fff
+    color: #7a7a7a
+    max-width: 100%
+    font-size: 1.2rem
+    
+    > thead > tr > th
+        background-color: #fff
+        vertical-align: middle
+        font-weight: 500
+        color: #333
+        border-width: 1px
+        text-transform: uppercase
+
+        &:first-child
+            padding-left: $padding
+
+    > tbody > tr > td
+        padding: 12px
+        line-height: 1.8
+        vertical-align: top
+        border-top: 1px solid $border
+        border-bottom: none
+        
+        &:first-child
+            padding-left: $padding

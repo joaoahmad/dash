@@ -1,0 +1,31 @@
+//#
+
+.button
+    border-radius: 2px
+    font-weight: 700
+
+    &.button-primary
+        background-color: $primary
+        border-color: $primary
+
+        &:hover,&:active,&:focus
+            background-color: darken($primary, 2%)
+            border-color: darken($primary, 2%)
+
+    &.button-dark
+        background-color: $dark
+        border-color: $dark
+
+        &:hover,&:active,&:focus
+            background-color: darken($dark, 2%)
+            border-color: darken($dark, 2%)
+
+
+    &.button-new
+        color: #fff
+        background-color: $blue
+        border-color: $blue
+
+        &:hover,&:active,&:focus
+            background-color: darken($blue, 2%)
+            border-color: darken($blue, 2%)

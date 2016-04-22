@@ -1,0 +1,67 @@
+// $height: 60px
+
+.uxinput
+  position: relative
+  width: 100%
+  margin: 0 0 20px 0
+  // background: #fff
+  box-sizing: border-box
+  border-radius: 2px
+
+  span.error
+    display: none
+    color: $invalid
+    font-size: 14px
+    position: absolute
+    top: 62px
+    left: 0px
+
+  label
+    transition: all .3s ease
+    position: absolute
+    height: 100%
+    width: 100%
+    box-sizing: border-box
+    padding: 0px 20px
+    pointer-events: none
+    font-size: 1.4rem
+    font-weight: 400
+    line-height: 60px
+    color: #AFAFAF
+    opacity: 1
+    will-change: transform
+
+  input, textarea
+    height: 60px
+    width: 100%
+    font-size: 1.4rem
+    color: $dark
+    box-sizing: border-box
+    padding: 18px 20px 0px 20px
+    border: 2px solid rgba(42,42,42,0.1)
+    transition: border .1s
+    outline: none
+    background: none
+    appearance: none
+
+    &:focus, &:active
+      outline: none !important
+      box-shadow: none !important
+      border: 2px solid rgba(42,42,42,0.2) !important
+
+
+.uxinput.focused
+  label
+    transform: translate3d(0, -10px, 0)
+
+.uxinput.invalid
+  border: 2px solid $invalid
+  .error
+    display: block
+
+//-
+
+
+.uxinput.textarea
+  textarea
+    padding-top: 38px

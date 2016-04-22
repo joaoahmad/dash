@@ -1,0 +1,49 @@
+.widget
+    &-card
+        display: block
+        color: #9a9a9a
+        padding: 0
+        background-color: #fff
+        box-shadow: 0 1px 1px rgba(0,0,0,.1)
+        border-radius: 2px
+        text-decoration: none
+        margin-bottom: 20px
+
+.widget-card
+    $box_width: 128px
+    $height: 200px
+
+    position: relative
+    height: $height
+    padding-left: $box_width
+
+    .widget-colorbox
+        position: absolute
+        width: $box_width
+        height: 100%
+        top: 0
+        left: 0
+        background: #2cc7a8
+
+    .widget-content
+        float: left
+        padding: 20px
+
+        small
+        h2
+            font-size: 1.8rem
+            font-weight: 500
+
+.widget-colorbox
+    &.c-turquoise
+        background-color: #2cc7a8
+    &.c-tomato
+        background-color: #f34f6a
+    &.c-cyan
+        background-color: #31c1d6
+    &.c-orange
+        background-color: #f0963d
+    &.c-gray
+        background-color: #62676c
+    &.c-brown
+        background-color: #91434c

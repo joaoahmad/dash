@@ -2,11 +2,13 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import configureStore from './stores'
 import rootReducer from './reducers'
-import App from './components/App';
+import routes from './routes';
+import Home from './pages/Home';
 
 const store = configureStore();
 
@@ -22,11 +24,13 @@ const store = configureStore();
 //
 //
 
-ReactDom.render(
+const hey = (
     <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
+        <Router history={browserHistory}>{routes}</Router>
+    </Provider>
+)
+
+ReactDom.render(hey, document.getElementById('app')
 )
 
 
