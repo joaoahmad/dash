@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactMixin from 'react-mixin';
 import { Route, RouteHandler, Link, Lifecycle } from 'react-router';
-import history from '../../history';
+// import history from '../../history';
 import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
-import LoginActions from '../../actions/LoginActions';
+// import LoginActions from '../../actions/LoginActions';
 
 class User extends React.Component {
 
@@ -13,7 +12,7 @@ class User extends React.Component {
 
 	logout(e){
 		e.preventDefault();
-		LoginActions.logoutUser();
+		// LoginActions.logoutUser();
 	}
 
 	render() {
@@ -22,7 +21,7 @@ class User extends React.Component {
                 <DropdownTrigger>
                     <div className="user">
                         <span className="user-avatar">
-                            <img src="/images/photo.jpg" />
+                            <img src="/assets/images/photo.jpg" />
                         </span>
                         <i className="fa fa-angle-down"></i>
                     </div>

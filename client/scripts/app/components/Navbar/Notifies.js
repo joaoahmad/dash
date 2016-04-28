@@ -1,11 +1,9 @@
-var React = require('react');
-var Link = require('react-router').Link;
-var Dropdown = require('react-simple-dropdown');
-var DropdownTrigger = Dropdown.DropdownTrigger;
-var DropdownContent = Dropdown.DropdownContent;
+import React from 'react'
+import { Link } from 'react-router'
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown'
 
-var Messages = React.createClass({
-	render: function() {
+class Messages extends React.Component{
+	render() {
 		return (
             <Dropdown className="dropdown-notifies">
                 <DropdownTrigger><i className="vi-bell is-icon"></i></DropdownTrigger>
@@ -17,7 +15,7 @@ var Messages = React.createClass({
             </Dropdown>
 		);
 	}
-	
-});
-	
-module.exports = Messages;
+
+};
+
+export default Messages

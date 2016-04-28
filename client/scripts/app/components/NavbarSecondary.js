@@ -12,7 +12,7 @@ var NavbarSecondary = React.createClass({
     return (
       <nav className='navbar-secondary'>
         <div className="container">
-          <div className="u-pull-left">
+          <div className="_pull-left">
               {menuLeft}
           </div>
           {menuRight}
@@ -38,7 +38,7 @@ var NavbarSecondary = React.createClass({
   getRight(){
         if (this.props.menuActions){
             return (
-                <div className="u-pull-right actions">
+                <div className="_pull-right actions">
                     {this.props.menuActions}
                 </div>
             )

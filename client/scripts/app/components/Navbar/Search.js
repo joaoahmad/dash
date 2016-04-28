@@ -14,7 +14,7 @@ var Search = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="search-wrap">
+			<div className="search-form">
 					<button onClick={this.redirSearch} className="search-btn feather-search"></button>
 					<input type="text" className="input-text" />
 			</div>

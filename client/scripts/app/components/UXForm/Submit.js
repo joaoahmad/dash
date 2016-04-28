@@ -17,7 +17,7 @@ class Submit extends React.Component {
 
         return (
             <div className={classes}>
-                <button {...this.props} className="button button-primary u-pull-right" type="button" disabled={this.state.disabled}>{this.props.children}</button>
+                <button {...this.props} className="button button-primary _pull-right" type="button" disabled={this.state.disabled}>{this.props.children}</button>
             </div>
         );
     }

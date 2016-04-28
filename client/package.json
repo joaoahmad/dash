@@ -20,6 +20,7 @@
     "react-redux": "^4.4.2",
     "react-router": "^2.1.1",
     "react-router-active-component": "^4.0.0-rc.0",
+    "react-simple-dropdown": "^1.1.0",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",

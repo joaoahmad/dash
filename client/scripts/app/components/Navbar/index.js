@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router';
-// import Nav from '../Nav'
-// import Notifies from './Notifies'
-// import Messages from './Messages'
-// import User from './User'
-// import Search from './Search'
+import Nav from '../Nav'
+import Notifies from './Notifies'
+import Messages from './Messages'
+import User from './User'
+import Search from './Search'
 
-var Navbar = React.createClass({
+class Navbar extends React.Component{
 
-	render: function() {
+	render() {
 
         var menuItems = [
             { route: "cursos", text: "Cursos" },
@@ -17,41 +17,39 @@ var Navbar = React.createClass({
             { route: "usuarios", text: "Usuários" },
         ]
 
-		return (
-			<nav className='navbar'>
-                <div className="container-fluid">
-                    <div className="u-pull-left">
-                        <Link className="logo" to="/home"></Link>
-                        <ul className="nav nav--inline">
-                        </ul>
-                    </div>
-                    <div className="u-pull-right">
-                        <ul className="nav nav--inline">
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-		);
 		// return (
 		// 	<nav className='navbar'>
         //         <div className="container-fluid">
-        //             <div className="u-pull-left">
+        //             <div className="_pull-left">
         //                 <Link className="logo" to="/home"></Link>
         //                 <ul className="nav nav--inline">
-        //                     <li style={{marginTop:0}}><Search /></li>
         //                 </ul>
         //             </div>
-        //             <div className="u-pull-right">
+        //             <div className="_pull-right">
         //                 <ul className="nav nav--inline">
-        //                     <li><Notifies /></li>
-        //                     <li><User /></li>
         //                 </ul>
         //             </div>
         //         </div>
         //     </nav>
 		// );
+		return (
+			<nav className='navbar'>
+                <div className="container-fluid">
+                    <div className="_pull-left">
+                        <Link className="logo" to="/home"></Link>
+                    </div>
+                    <div className="_pull-right">
+						<Search />
+                        <ul className="nav nav--inline">
+                            <li><Notifies /></li>
+                            <li><User /></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+		);
 	}
 
-});
+}
 
-module.exports = Navbar;
+export default Navbar;

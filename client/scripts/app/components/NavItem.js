@@ -1,8 +1,8 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
-// import createActiveRouteComponent from './helpers/ActiveRoute';
+import activeComponent from 'react-router-active-component';
 
-var Item = createActiveRouteComponent('li');
+var Item = activeComponent('li');
 
 class NavItem extends React.Component {
 	render() {
@@ -10,7 +10,7 @@ class NavItem extends React.Component {
 			<Item
 	            to={this.props.to}
 	            linkClassName={this.props.class}>
-	                {this.props.text}
+	                {this.props.label}
             </Item>
         )
     }
