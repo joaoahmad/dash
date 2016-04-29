@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classnames from 'classnames';
-// import activeComponent from 'react-router-active-component';
+import activeComponent from 'react-router-active-component';
 
-// var li = activeComponent('li');
+var Li = activeComponent('li');
 
 class Sidebar extends React.Component {
 
@@ -20,10 +20,10 @@ class Sidebar extends React.Component {
         return (
             <div className={classes} ref="sidebar">
                 <ul className="nav">
-                    <li to="/cursos"><Link to="/"><i className="vi-book is-icon"></i> <span>Cursos</span></Link></li>
-                    <li to="/conteudos"><Link to="/"><i className="vi-calendar is-icon"></i> <span>Conteúdos</span></Link></li>
-                    <li to="/atividade"><Link to="/"><i className="vi-trophy is-icon"></i> <span>Atividade</span></Link></li>
-                    <li to="/usuarios"><Link to="/"><i className="vi-users is-icon"></i> <span>Usuários</span></Link></li>
+                    <Li to={'/cursos'}><i className="vi-book is-icon"></i> <span>Cursos</span></Li>
+                    <Li to={'/conteudos'}><i className="vi-calendar is-icon"></i> <span>Conteúdos</span></Li>
+                    <Li to={'/atividade'}><i className="vi-trophy is-icon"></i> <span>Atividade</span></Li>
+                    <Li to={'/users'}><i className="vi-users is-icon"></i> <span>Usuários</span></Li>
                 </ul>
                 <hr className="separator" />
             <ul className="nav nav-sub">

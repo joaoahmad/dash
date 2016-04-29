@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react'
 
 import Header from './UXTableHeader';
 import Body from './UXTableBody';

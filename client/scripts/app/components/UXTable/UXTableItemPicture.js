@@ -1,6 +1,6 @@
-var React = require('react');
-var _ = require('lodash');
-var Link = require('react-router').Link;
+import React from 'react';
+import { Link } from 'react-router';
+import _ from 'lodash';
 
 class UXTableItemPicture extends React.Component {
 

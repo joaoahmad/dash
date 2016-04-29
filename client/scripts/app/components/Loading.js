@@ -14,7 +14,7 @@ export default class Loading extends React.Component {
             </div>
         );
 
-        return (_.isEmpty(this.props.data)) ? loading : this.props.children ;
+        return (this.props.isFetching) ? loading : this.props.children ;
     }
 
 }

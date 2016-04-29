@@ -1,5 +1,5 @@
-var React = require('react');
-var Link = require('react-router').Link;
+import React from 'react';
+import { Link } from 'react-router';
 
 class UXTableItem extends React.Component {
 
