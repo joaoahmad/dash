@@ -36,7 +36,7 @@ class Navbar extends React.Component{
 			<nav className='navbar'>
                 <div className="container-fluid">
                     <div className="_pull-left">
-                        <Link className="logo" to="/home"></Link>
+                        <Link className="brand" to="/home">Dash Jest</Link>
                     </div>
                     <div className="_pull-right">
 						<Search />

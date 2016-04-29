@@ -4185,7 +4185,7 @@ body {
   background-color: #f1f1f3;
   font-family: "jaf-bernino-sans", Helvetica, Arial, sans-serif;
   color: #17191a;
-  padding-top: 58px;
+  padding-top: 48px;
   overflow-y: scroll;
   overflow-x: none;
 }
@@ -6599,7 +6599,7 @@ img {
 
 .sidebar {
   position: fixed;
-  top: 58px;
+  top: 48px;
   left: 0;
   bottom: 0;
   width: 240px;
@@ -6826,24 +6826,25 @@ img {
   padding: 0;
   margin: 0;
   color: #c3c3c7;
-  width: 42px;
-  height: 38px;
-  font-size: 18px;
-  line-height: 38px;
+  width: 32px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 28px;
   border: none;
-  border-radius: 21px;
+  border-radius: 16px;
   margin: 0;
   background: none;
 }
 .search-form .input-text {
   border: none;
-  height: 38px;
+  height: 28px;
   font-size: 14px;
-  color: #fff;
-  padding: 0 20px 0 42px;
-  border-radius: 19px;
+  color: #212121;
+  padding: 0 20px 0 32px;
+  border-radius: 4px;
   background: none;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .search-form .input-text:focus, .search-form .input-text:active {
   border: none;
@@ -6897,7 +6898,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 58px;
+  height: 48px;
   color: #adafb3;
   background: #313640;
   z-index: 30;
@@ -6928,7 +6929,7 @@ img {
   font-size: 1.8rem;
 }
 .navbar .nav--inline > li {
-  margin: 20px 0 0 20px;
+  margin: 16px 0 0 16px;
 }
 .navbar .nav--inline > li > a:hover {
   color: white;
@@ -6956,13 +6957,25 @@ img {
   vertical-align: middle;
   max-width: 100%;
 }
+.navbar .user .user-name {
+  font-size: 12px;
+  color: #fff;
+  margin-left: 10px;
+}
 .navbar .user > i {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
+  margin-top: 1px;
 }
 .navbar .dropdown-user {
   margin-top: -4px;
+}
+.navbar .brand {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  line-height: 48px;
 }
 
 .nav {

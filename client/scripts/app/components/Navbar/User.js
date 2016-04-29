@@ -23,6 +23,7 @@ class User extends React.Component {
                         <span className="user-avatar">
                             <img src="/assets/images/photo.jpg" />
                         </span>
+						<span className="user-name">Joao</span>
                         <i className="fa fa-angle-down"></i>
                     </div>
                 </DropdownTrigger>

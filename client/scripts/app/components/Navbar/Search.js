@@ -1,26 +1,26 @@
-var React = require('react');
-var Link = require('react-router').Link;
+import React from 'react'
+import { Link } from 'react-router'
 
-var Search = React.createClass({
-	getInitialState: function() {
-			return {items: []};
-		},
-	doSearch: function(e) {
-			console.log(e.target.value);
-			this.setState({ items: [] });
-	},
-	redirSearch: function(e) {
-			this.setState({ items: '' });
-	},
-	render: function() {
+class Search extends React.Component{
+
+	doSearch(e) {
+		console.log(e.target.value);
+		this.setState({ items: [] });
+	}
+
+	redirSearch(e) {
+		this.setState({ items: '' });
+	}
+
+	render() {
 		return (
 			<div className="search-form">
-					<button onClick={this.redirSearch} className="search-btn feather-search"></button>
-					<input type="text" className="input-text" />
+			<button onClick={this.redirSearch} className="search-btn feather-search"></button>
+			<input type="text" className="input-text" />
 			</div>
 		);
 	}
 
-});
+}
 
-module.exports = Search;
+export default Search

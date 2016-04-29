@@ -32,6 +32,6 @@ export function fetchEntries(entry) {
                 })
             })
         }, 500);
-        
+
     }
 }
