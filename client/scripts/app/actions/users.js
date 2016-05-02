@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as types from'../constants'
-import Api from '../services/Api'
+import api from '../middlewares/api'
 
 // to add a user
 export function addUser(name) {
@@ -14,9 +14,9 @@ export function addUser(name) {
 export function fetchUsers() {
     return dispatch => {
 
-        dispatch({ type: types.FETCH_USERS_REQUEST })
+        dispatch({ type: types.FETCH_USERS })
 
-        return Api.get(types.API_ROOT + '/users')
+        return api.get(types.API_ROOT + '/users')
         .then(response => {
             return dispatch({
                 type: types.FETCH_USERS_SUCCESS,
@@ -34,21 +34,44 @@ export function fetchUsers() {
 }
 
 // to get one user
-export function fetchUser(id) {
+export function readUser(id) {
     return dispatch => {
 
-        dispatch({ type: types.FETCH_USER_REQUEST })
+        dispatch({ type: types.READ_USER })
 
-        return Api.get(types.API_ROOT + '/users/' + id)
+        return api.get(types.API_ROOT + '/users/' + id)
         .then(response => {
             return dispatch({
-                type: types.FETCH_USER_SUCCESS,
+                type: types.READ_USER_SUCCESS,
                 user: response.user
             })
         })
         .catch( ex => {
             return dispatch({
-                type: types.FETCH_USER_FAILURE,
+                type: types.READ_USER_FAILURE,
+                ex
+            })
+        })
+
+    }
+}
+
+// update user
+export function updateUser(id, data) {
+    return dispatch => {
+
+        dispatch({ type: types.UPDATE_USER })
+
+        return api.put(types.API_ROOT + '/users/' + id, data)
+        .then(response => {
+            return dispatch({
+                type: types.UPDATE_USER_SUCCESS,
+                user: response.user
+            })
+        })
+        .catch( ex => {
+            return dispatch({
+                type: types.UPDATE_USER_FAILURE,
                 ex
             })
         })

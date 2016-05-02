@@ -74,10 +74,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks('DashedRoute');
 });
 
-Router::scope('/api', function ($routes) {
-    $routes->extensions(['json']);
-    $routes->resources('Api.Users');
-});
+// Router::scope('/api', function ($routes) {
+//     $routes->extensions(['json']);
+//     $routes->resources('Api.Users');
+// });
 
 /**
  * Load all plugin routes.  See the Plugin documentation on

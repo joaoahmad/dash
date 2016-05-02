@@ -220,4 +220,4 @@ Type::build('date')
 Type::build('datetime')
     ->useImmutable();
 
-Plugin::load('Api', ['bootstrap' => false, 'routes' => true]);
+Plugin::load('Api', ['bootstrap' => true, 'routes' => true]);

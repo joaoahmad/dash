@@ -3,20 +3,15 @@ import Page from '../components/Page';
 import Subnav from '../components/Subnav';
 import Panel from '../components/UXPanel';
 import Container from '../components/Container';
-import UsersContainer from '../containers/UsersContainer';
 import activeComponent from 'react-router-active-component';
 
 var Li = activeComponent('li');
 
 class Users extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     render() {
         const menuItems = [
-            { label: 'Pedidos', to: '/' },
-            { label: 'Clientes', to: '/dsa' },
+            { label: 'Usuários', to: '/users' },
         ]
         return (
             <Page title="Usuários">
@@ -24,7 +19,7 @@ class Users extends React.Component {
                 <Container>
                     <div className="row">
                         <div className="col-12">
-                            <UsersContainer />
+                            {this.props.children}
                         </div>
                     </div>
                 </Container>

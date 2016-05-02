@@ -11,7 +11,7 @@ class UXTableItem extends React.Component {
 
         var count = this._count();
         return (
-          <div className="uxtable-item" ref={this.props.ref} key={this.props.key}>
+          <div className="uxtable-item">
             {count}
             {this.props.children}
           </div>

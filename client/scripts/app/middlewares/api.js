@@ -2,7 +2,7 @@ import axios from 'axios';
 import _ from 'lodash';
 // import LoginStore from '../stores/LoginStore.js';
 
-var Api = {
+const api = {
 
     get(url, data) {
         return this.handle(axios({
@@ -77,4 +77,4 @@ var Api = {
 
 }
 
-export default Api;
+export default api;

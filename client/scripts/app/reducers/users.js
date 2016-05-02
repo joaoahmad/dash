@@ -33,7 +33,7 @@ const users = (state = { isFetching: true, users: [], user: {} }, action) => {
         })
 
         // set single user
-        case types.FETCH_USER_SUCCESS:
+        case types.READ_USER_SUCCESS:
         return Object.assign({}, state, {
             isFetching: false,
             user: action.user

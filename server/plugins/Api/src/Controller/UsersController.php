@@ -38,7 +38,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['Groups', 'Companies', 'ActivityLog', 'Addresses', 'Notifications', 'Orders', 'PasswordsTokens', 'Payments', 'UserOrder', 'UsersCredits', 'UsersCreditsLogs', 'UsersVouchers']
+            // 'contain' => ['Groups', 'Companies', 'ActivityLog', 'Addresses', 'Notifications', 'Orders', 'PasswordsTokens', 'Payments', 'UserOrder', 'UsersCredits', 'UsersCreditsLogs', 'UsersVouchers']
         ]);
 
         $this->set('user', $user);
@@ -82,9 +82,12 @@ class UsersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
+            // pr($user); die;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                // $this->set(compact('user', 'groups', 'companies'));
+                $this->set('_serialize', ['user']);
+                // return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }

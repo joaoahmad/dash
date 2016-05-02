@@ -8,7 +8,6 @@ import { createStore } from 'redux'
 import configureStore from './stores'
 import rootReducer from './reducers'
 import routes from './routes';
-import Home from './pages/Home';
 
 const store = configureStore();
 
@@ -24,17 +23,10 @@ const store = configureStore();
 //
 //
 
-const hey = (
+const Root = (
     <Provider store={store}>
         <Router history={browserHistory}>{routes}</Router>
     </Provider>
 )
 
-ReactDom.render(hey, document.getElementById('app')
-)
-
-
-// ReactDom.render(
-//         <App />,
-//     document.getElementById('app')
-// )
+ReactDom.render(Root, document.getElementById('app'))

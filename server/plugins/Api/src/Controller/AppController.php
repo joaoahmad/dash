@@ -17,12 +17,5 @@ class AppController extends BaseController{
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-
-        header("Access-Control-Allow-Origin: *");
-
-        // $this->response->cors($this->request)
-        // ->allowOrigin(['*'])
-        // ->allowMethods(['GET', 'POST'])
-        // ->build();
     }
 }
