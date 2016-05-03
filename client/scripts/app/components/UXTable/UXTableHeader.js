@@ -11,7 +11,7 @@ class UXTableHeader extends React.Component {
 
         return (
           <div className="uxtable-header">
-            ...
+            {this.props.children}
           </div>
         );
     }

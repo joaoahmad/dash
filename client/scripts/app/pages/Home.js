@@ -1,10 +1,10 @@
 import React from 'react';
-import Page from '../components/Page';
+import activeComponent from 'react-router-active-component';
 import Subnav from '../components/Subnav';
 import Loading from '../components/Loading';
 import Panel from '../components/UXPanel';
 import Container from '../components/Container';
-import activeComponent from 'react-router-active-component';
+import Page from '../containers/Page';
 
 var Li = activeComponent('li');
 

@@ -2,26 +2,37 @@
 namespace Api\Controller;
 
 use Api\Controller\AppController;
+use Api\Utility\SUV;
+use Cake\Utility\Hash;
 
 /**
- * Users Controller
- *
- * @property \Api\Model\Table\UsersTable $Users
- */
+* Users Controller
+*
+* @property \Api\Model\Table\UsersTable $Users
+*/
 class UsersController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
+    * Index method
+    *
+    * @return \Cake\Network\Response|null
+    */
+
+    public function filter(){
+
+    }
+    public function index($arr = array())
     {
 
+        $filter = SUV::apply(array('status'), $this->request->query);
+        $filter = SUV::prefix('Users.', $filter);
+
         $this->paginate = [
-            'contain' => ['Groups', 'Companies']
+            'contain' => ['Groups', 'Companies'],
+            'conditions' => $filter
         ];
+
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -29,12 +40,12 @@ class UsersController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+    * View method
+    *
+    * @param string|null $id User id.
+    * @return \Cake\Network\Response|null
+    * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+    */
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
@@ -46,10 +57,10 @@ class UsersController extends AppController
     }
 
     /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
+    * Add method
+    *
+    * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+    */
     public function add()
     {
         $user = $this->Users->newEntity();
@@ -69,12 +80,12 @@ class UsersController extends AppController
     }
 
     /**
-     * Edit method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
+    * Edit method
+    *
+    * @param string|null $id User id.
+    * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
+    * @throws \Cake\Network\Exception\NotFoundException When record not found.
+    */
     public function edit($id = null)
     {
         $user = $this->Users->get($id, [
@@ -99,12 +110,12 @@ class UsersController extends AppController
     }
 
     /**
-     * Delete method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+    * Delete method
+    *
+    * @param string|null $id User id.
+    * @return \Cake\Network\Response|null Redirects to index.
+    * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+    */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);

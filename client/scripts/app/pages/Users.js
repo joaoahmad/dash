@@ -1,9 +1,9 @@
 import React from 'react';
-import Page from '../components/Page';
+import activeComponent from 'react-router-active-component';
 import Subnav from '../components/Subnav';
 import Panel from '../components/UXPanel';
 import Container from '../components/Container';
-import activeComponent from 'react-router-active-component';
+import Page from '../containers/Page';
 
 var Li = activeComponent('li');
 
@@ -11,7 +11,8 @@ class Users extends React.Component {
 
     render() {
         const menuItems = [
-            { label: 'Usuários', to: '/users' },
+            { label: 'Lista', to: '/users' },
+            { label: 'Relatórios', to: '/users/reports' },
         ]
         return (
             <Page title="Usuários">

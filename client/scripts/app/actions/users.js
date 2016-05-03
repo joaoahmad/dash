@@ -11,12 +11,12 @@ export function addUser(name) {
 }
 
 // to get all users
-export function fetchUsers() {
+export function fetchUsers(filter = {}) {
     return dispatch => {
 
         dispatch({ type: types.FETCH_USERS })
-
-        return api.get(types.API_ROOT + '/users')
+        
+        return api.get(types.API_ROOT + '/users', filter)
         .then(response => {
             return dispatch({
                 type: types.FETCH_USERS_SUCCESS,

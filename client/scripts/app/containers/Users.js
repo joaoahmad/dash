@@ -33,24 +33,48 @@ class Item extends React.Component{
 }
 
 class UsersList extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.onChangeFilter = this.onChangeFilter.bind(this)
+    }
+
     componentDidMount(){
         const { dispatch } = this.props
         dispatch(fetchUsers())
     }
+
+    onChangeFilter(){
+        const { dispatch } = this.props
+        const filter = {
+            name: this.refs['filter.name'].value,
+            status: this.refs['filter.status'].value,
+        }
+        dispatch(fetchUsers(filter))
+    }
+
     render(){
         const { users, isFetching } = this.props
         const items = this.props.users.map((user, i) => <Item user={user} key={i}  />);
 
         return (
             <div>
-                <Loading isFetching={isFetching}>
-                    <Table>
-                        <Table.Header></Table.Header>
+                <Table>
+                    <Table.Header>
+                        <input ref='filter.name' onChange={this.onChangeFilter} placeholder='Buscar' type='text' />
+                        <select ref='filter.status' onChange={this.onChangeFilter}>
+                            <option value=''>Todos</option>
+                            <option value='inactive'>Inativos</option>
+                            <option value='guests'>Convidados</option>
+                            <option value='rejected'>Rejeitados</option>
+                        </select>
+                    </Table.Header>
+                    <Loading isFetching={isFetching}>
                         <Table.Body>
                             {items}
                         </Table.Body>
-                    </Table>
-                </Loading>
+                    </Loading>
+                </Table>
             </div>
         )
     }

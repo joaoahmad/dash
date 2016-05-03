@@ -62,22 +62,24 @@ Form = reduxForm({
 
 class UsersView extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
     componentDidMount(){
         const { dispatch, params: { userId } } = this.props
         dispatch(readUser(userId))
     }
 
-    componentWillUnmount(){
-        // dispatch(fetchUser(id))
-    }
-
     render(){
         const { user, isFetching } = this.props
+        console.log('isFetching', isFetching);
         return (
             <Loading isFetching={isFetching}>
 
                 <div>
-                    <Form initialValues={user} handleSubmit={this.handleSubmit} />
+                    <Form initialValues={user} onSubmit={this.handleSubmit} />
                     <pre>{JSON.stringify(user)}</pre>
                 </div>
 
@@ -85,20 +87,11 @@ class UsersView extends React.Component{
         )
     }
 
-    handleSubmit(e){
-        e.preventDefault()
-        console.log('asads');
-        // const { dispatch, id } = this.props
-        // const form = this.refs.form;
-        // const data = serialize(form, { hash: true });
-        // dispatch(updateUser(id, data))
-        return false;
+    handleSubmit(data, dispatch){
+        const { userId } = this.props.params
+        dispatch(updateUser(userId, data));
     }
 }
-
-// UsersView.propTypes = {
-//     user: propTypes.object.isRequired
-// }
 
 const mapStateToProps = (state) => {
     return Object.assign({

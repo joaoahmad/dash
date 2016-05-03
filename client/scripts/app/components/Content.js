@@ -14,7 +14,6 @@ export default class Content extends React.Component {
             'content-inner': true
         });
         var ref = this.state.timestamp;
-        console.log(ref);
         return (
             <div id="content" ref="content" key={ref}>
                 {this.props.children}

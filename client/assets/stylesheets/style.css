@@ -6613,6 +6613,9 @@ img {
 .sidebar .nav > li {
   padding: 0 16px;
 }
+.sidebar .nav > li.active {
+  box-shadow: inset -4px 0 #0F9CF9;
+}
 .sidebar .nav a {
   display: block;
   line-height: 40px;
@@ -6664,11 +6667,11 @@ img {
 .subnav {
   position: relative;
   width: 100%;
+  color: #515253;
   padding: 0;
+  background: #fff;
+  border-bottom: solid 1px #e9e9e9;
   z-index: 10;
-  color: #fff;
-  background: -webkit-linear-gradient(left, #0095FF, #77CCCC);
-  background: linear-gradient(to right, #0095FF, #77CCCC);
 }
 .subnav a {
   text-decoration: none;
@@ -6696,16 +6699,16 @@ img {
   padding: 0 20px;
 }
 .subnav .nav--inline a:hover {
-  color: white;
+  color: #17191a;
 }
 .subnav .nav--inline li.active a {
-  color: #fff;
-  border-color: #fff;
+  color: #2398FF;
+  border-color: #2398FF;
 }
 .subnav .title {
-  color: #fff;
-  font-size: 24px;
-  font-size: 2.4rem;
+  color: #17191a;
+  font-size: 20px;
+  font-size: 2rem;
   height: 70px;
   line-height: 72px;
   margin: 0;
