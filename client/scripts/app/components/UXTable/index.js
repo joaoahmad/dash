@@ -7,6 +7,8 @@ import ItemActions from './UXTableItemActions';
 import ItemContent from './UXTableItemContent';
 import ItemPicture from './UXTableItemPicture';
 
+import './styles/index.sass';
+
 class Table extends React.Component {
 
     static get Header(){ return Header }

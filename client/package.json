@@ -29,6 +29,7 @@
     "redux-form": "^5.2.3",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
+    "sassify": "^0.10.0",
     "uglifyify": "^3.0.1"
   },
   "devDependencies": {

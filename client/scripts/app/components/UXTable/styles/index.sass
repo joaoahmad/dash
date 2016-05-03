@@ -1,14 +1,16 @@
 $padding: 20px
 
+@import '../../../../../assets/stylesheets/bootstrap'
+
 .uxtable
-    &-header
-        @extend .row
+    &-header 
+        +cf()
 
     &-body
-        @extend .row
+        +cf()
 
     &-item
-        @extend .card
+        @extend %card
         position: relative
         display: inline-block
         vertical-align: top

@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
+import Content from '../components/Content';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import Content from './Content';
-// import AddEntry from '../containers/AddEntry';
-// import EntriesList from '../containers/EntriesList';
 
 class App extends React.Component {
     constructor(props){

@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
                     <Li to={'/users'}><i className="vi-users is-icon"></i> <span>Usuários</span></Li>
                 </ul>
                 <hr className="separator" />
-            <ul className="nav nav-sub">
+                <ul className="nav nav-sub">
                     <li><Link to="/">Reportar erro</Link></li>
                     <li><Link to="/">Ajuda</Link></li>
                 </ul>

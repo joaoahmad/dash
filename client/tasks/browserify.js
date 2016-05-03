@@ -14,7 +14,8 @@ module.exports = function(grunt){
                     extensions: ['.js']
                 },
                 transform: [
-                    ['babelify', { "presets": ["es2015", "react"] }]
+                    ['babelify', { "presets": ["es2015", "react"] }],
+                    ['sassify', { 'auto-inject': true, base64Encode: false, sourceMap: false }]
                 ]
             }
         },

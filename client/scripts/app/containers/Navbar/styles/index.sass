@@ -1,0 +1,89 @@
+@import '../../../../../assets/stylesheets/utilities/variables'
+
+.navbar
+    $bg: #313640
+    $color: #fff
+
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: $navbar_height
+    color: mix($color, $bg, 60%)
+    background: $bg
+    z-index: 30
+
+    ._pull-left
+        //margin-left: -15px
+        > *
+            float: left
+
+    ._pull-right
+        //margin-right: -15px
+
+        .nav
+            font-size: 1.8rem
+            > li > .is-icon
+                font-size: 1.8rem
+                cursor: pointer
+
+    .search-form
+        float: left
+
+    .nav--inline
+        margin: 0
+        font-size: 1.3rem
+        float: left
+
+        .is-icon
+            font-size: 1.8rem
+
+        > li
+            margin: 16px 0 0 16px
+
+            > a:hover
+                color: mix($color, $bg, 100%)
+
+            &.active
+                > a
+                    color: #fff
+        a
+            transition: color .1s, background-color .1s
+            padding: 0 5px
+            font-weight: 600
+            letter-spacing: 0.04rem
+            //height: $navbar_height
+            line-height: 1.2
+
+    .user
+
+        .user-avatar
+            $size: 28px
+            display: inline-block
+            vertical-align: top
+            width: $size
+            height: $size
+            img
+                border-radius: $size/2
+                vertical-align: middle
+                max-width: 100%
+
+        .user-name
+            font-size: 12px
+            color: #fff
+            margin-left: 10px
+
+        > i
+            display: inline-block
+            vertical-align: middle
+            margin-left: 10px
+            margin-top: 1px
+
+    .dropdown-user
+        margin-top: -4px
+
+    .brand
+        color: #fff
+        font-size: 16px
+        text-decoration: none
+        line-height: $navbar_height
