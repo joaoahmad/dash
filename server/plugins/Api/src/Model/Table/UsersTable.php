@@ -10,18 +10,6 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Groups
- * @property \Cake\ORM\Association\BelongsTo $Companies
- * @property \Cake\ORM\Association\HasMany $ActivityLog
- * @property \Cake\ORM\Association\HasMany $Addresses
- * @property \Cake\ORM\Association\HasMany $Notifications
- * @property \Cake\ORM\Association\HasMany $Orders
- * @property \Cake\ORM\Association\HasMany $PasswordsTokens
- * @property \Cake\ORM\Association\HasMany $Payments
- * @property \Cake\ORM\Association\HasMany $UserOrder
- * @property \Cake\ORM\Association\HasMany $UsersCredits
- * @property \Cake\ORM\Association\HasMany $UsersCreditsLogs
- * @property \Cake\ORM\Association\HasMany $UsersVouchers
  */
 class UsersTable extends Table
 {
@@ -41,55 +29,6 @@ class UsersTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->belongsTo('Groups', [
-            'foreignKey' => 'group_id',
-            'className' => 'Api.Groups'
-        ]);
-        $this->belongsTo('Companies', [
-            'foreignKey' => 'company_id',
-            'className' => 'Api.Companies'
-        ]);
-        $this->hasMany('ActivityLog', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.ActivityLog'
-        ]);
-        $this->hasMany('Addresses', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.Addresses'
-        ]);
-        $this->hasMany('Notifications', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.Notifications'
-        ]);
-        $this->hasMany('Orders', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.Orders'
-        ]);
-        $this->hasMany('PasswordsTokens', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.PasswordsTokens'
-        ]);
-        $this->hasMany('Payments', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.Payments'
-        ]);
-        $this->hasMany('UserOrder', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.UserOrder'
-        ]);
-        $this->hasMany('UsersCredits', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.UsersCredits'
-        ]);
-        $this->hasMany('UsersCreditsLogs', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.UsersCreditsLogs'
-        ]);
-        $this->hasMany('UsersVouchers', [
-            'foreignKey' => 'user_id',
-            'className' => 'Api.UsersVouchers'
-        ]);
     }
 
     /**
@@ -101,7 +40,7 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
+            ->uuid('id')
             ->allowEmpty('id', 'create');
 
         $validator
@@ -117,20 +56,14 @@ class UsersTable extends Table
             ->allowEmpty('password');
 
         $validator
-            ->allowEmpty('telephone');
+            ->allowEmpty('username');
 
         $validator
-            ->allowEmpty('ramal');
-
-        $validator
-            ->allowEmpty('status');
+            ->allowEmpty('role');
 
         $validator
             ->boolean('trash')
             ->allowEmpty('trash');
-
-        $validator
-            ->allowEmpty('tmp_address');
 
         return $validator;
     }
@@ -145,8 +78,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['group_id'], 'Groups'));
-        $rules->add($rules->existsIn(['company_id'], 'Companies'));
+        $rules->add($rules->isUnique(['username']));
         return $rules;
     }
 }

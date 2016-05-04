@@ -1,5 +1,11 @@
 //#
 
+%button
+    border-radius: 2px
+    font-weight: 700
+    border: none
+    font-size: 12px
+
 .button
     border-radius: 2px
     font-weight: 700
@@ -7,6 +13,7 @@
     &.button-primary
         background-color: $primary
         border-color: $primary
+        color: #fff
 
         &:hover,&:active,&:focus
             background-color: darken($primary, 2%)
@@ -29,3 +36,21 @@
         &:hover,&:active,&:focus
             background-color: darken($blue, 2%)
             border-color: darken($blue, 2%)
+
+.button-submit
+    @extend %button
+    color: #fff
+    background-color: $blue
+    border-color: $blue
+    padding: 0 20px
+    font-size: 11px
+    text-transform: uppercase
+    border: none
+
+    &:hover,&:active,&:focus
+        color: #fff
+        background-color: darken($blue, 2%)
+        border-color: darken($blue, 2%)
+
+    &.is-disabled
+        background: #A5AEB9 !important

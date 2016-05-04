@@ -4,6 +4,7 @@ namespace Api\Controller;
 use Api\Controller\AppController;
 use Api\Utility\SUV;
 use Cake\Utility\Hash;
+use Cake\Network\Exception\InternalErrorException;
 
 /**
 * Users Controller
@@ -29,7 +30,6 @@ class UsersController extends AppController
         $filter = SUV::prefix('Users.', $filter);
 
         $this->paginate = [
-            'contain' => ['Groups', 'Companies'],
             'conditions' => $filter
         ];
 
@@ -63,19 +63,18 @@ class UsersController extends AppController
     */
     public function add()
     {
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->set(compact('user'));
+                $this->set('_serialize', ['user']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                // $this->set('_serialize', ['user']);
+                throw new InternalErrorException();
             }
         }
-        $groups = $this->Users->Groups->find('list', ['limit' => 200]);
-        $companies = $this->Users->Companies->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'groups', 'companies'));
         $this->set('_serialize', ['user']);
     }
 
@@ -93,19 +92,14 @@ class UsersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
-            // pr($user); die;
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                // $this->set(compact('user', 'groups', 'companies'));
+                $this->set(compact('user'));
                 $this->set('_serialize', ['user']);
-                // return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                throw new InternalErrorException();
             }
         }
-        $groups = $this->Users->Groups->find('list', ['limit' => 200]);
-        $companies = $this->Users->Companies->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'groups', 'companies'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
@@ -119,12 +113,28 @@ class UsersController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
-        } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+
+        if (!$id){
+            // delete multiples
+            $users = $this->request->data['users'];
+            foreach ($users as $id) {
+                $user = $this->Users->get($id);
+                if ($this->Users->delete($user)) {
+                    $response[] = $user;
+                }
+            }
+
+            $this->set('users', $response);
+            $this->set('_serialize', ['user']);
+        }else{
+            // delete single
+            $user = $this->Users->get($id);
+            if ($this->Users->delete($user)) {
+                $this->set(compact('user'));
+                $this->set('_serialize', ['user']);
+            } else {
+                throw new InternalErrorException();
+            }
         }
-        return $this->redirect(['action' => 'index']);
     }
 }

@@ -1,0 +1,73 @@
+$padding: 20px
+
+@import '../../../../assets/stylesheets/bootstrap'
+
+.uxtable
+    &-header
+        +cf()
+
+    &-body
+        +cf()
+
+    &-item
+        @extend %card
+        position: relative
+        display: inline-block
+        vertical-align: top
+        width: 100%
+        padding: $padding 120px $padding $padding
+        box-sizing: border-box
+        border-radius: 0
+        margin-bottom: 0
+        border-bottom: solid 1px #f1f1f1
+
+        &-picture
+            float: left
+            border-radius: 0
+            overflow: hidden
+            margin-right: $padding
+            &--img
+                background-size: cover
+
+        &-content
+            float: left
+            max-width: 400px
+
+            .title
+                font-size: 1.4rem
+                color: $dark
+                text-decoration: none
+                white-space: nowrap
+                overflow: hidden
+                display: block
+                text-overflow: ellipsis
+                box-sizing: border-box
+
+            .meta
+                font-size: 1.2rem
+                color: rgba($dark, .5)
+
+        &-actions
+            position: absolute
+            top: 50%
+            transform: translate3d(0,-50%,0)
+            right: $padding
+
+            //@media screen and (min-width: 1024px) &
+            opacity: 0
+            visibility: hidden
+            transition: .2s
+
+        &--count
+            position: absolute
+            right: 100%
+            top: 50%
+            transform: translate3d(0,-50%,0)
+            margin-right: 15px
+            color: rgba(0,0,0,.25)
+            font-size: 10px
+
+
+.uxtable-item:hover .uxtable-item-actions
+    opacity: 1
+    visibility: visible

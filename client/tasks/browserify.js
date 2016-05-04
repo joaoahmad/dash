@@ -3,7 +3,7 @@ module.exports = function(grunt){
 
         development: {
             files: {
-                'scripts/bundle.js': ['scripts/app/index.js'],
+                'assets/scripts/bundle.js': ['src/index.js'],
             },
             options: {
                 watch: true,
@@ -20,14 +20,14 @@ module.exports = function(grunt){
             }
         },
 
-        production: {
-            files: {
-                'scripts/bundle.js': ['js/app/index.js'],
-            },
-            options: {
-                transform: ['babelify']
-            }
-        }
+        // production: {
+        //     files: {
+        //         'assets/scripts/bundle.js': ['js/app/index.js'],
+        //     },
+        //     options: {
+        //         transform: ['babelify']
+        //     }
+        // }
 
     });
 };

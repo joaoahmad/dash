@@ -24,19 +24,7 @@ class UsersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.api.users',
-        'plugin.api.groups',
-        'plugin.api.companies',
-        'plugin.api.activity_log',
-        'plugin.api.addresses',
-        'plugin.api.notifications',
-        'plugin.api.orders',
-        'plugin.api.passwords_tokens',
-        'plugin.api.payments',
-        'plugin.api.user_order',
-        'plugin.api.users_credits',
-        'plugin.api.users_credits_logs',
-        'plugin.api.users_vouchers'
+        'plugin.api.users'
     ];
 
     /**

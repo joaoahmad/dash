@@ -333,6 +333,19 @@
           flex-wrap: wrap;
 }
 
+.button-submit {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 26px;
+  line-height: 42px;
+  color: #fff;
+  background: #2398FF;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  letter-spacing: 0.04rem;
+}
+
 @font-face {
   font-family: 'vicons';
   src: url("../fonts/vicons.eot?ju9mhy");
@@ -6672,6 +6685,14 @@ img {
   background: #fff;
   border-bottom: solid 1px #e9e9e9;
   z-index: 10;
+  *zoom: 1;
+}
+.subnav:before, .subnav:after {
+  content: '';
+  display: table;
+}
+.subnav:after {
+  clear: both;
 }
 .subnav a {
   text-decoration: none;
@@ -6705,13 +6726,13 @@ img {
   color: #2398FF;
   border-color: #2398FF;
 }
-.subnav .title {
+.subnav__title {
   color: #17191a;
   font-size: 20px;
   font-size: 2rem;
   height: 70px;
   line-height: 72px;
-  margin: 0;
+  margin: 0 22px;
   letter-spacing: 0.4px;
   letter-spacing: 0.04rem;
   text-decoration: none;
@@ -6930,6 +6951,13 @@ img {
   background: #f1f1f1;
 }
 
+.button-submit {
+  border-radius: 2px;
+  font-weight: 700;
+  border: none;
+  font-size: 12px;
+}
+
 .button {
   border-radius: 2px;
   font-weight: 700;
@@ -6937,6 +6965,7 @@ img {
 .button.button-primary {
   background-color: #2398FF;
   border-color: #2398FF;
+  color: #fff;
 }
 .button.button-primary:hover, .button.button-primary:active, .button.button-primary:focus {
   background-color: #1993ff;
@@ -6956,6 +6985,24 @@ img {
   border-color: #2398FF;
 }
 .button.button-new:hover, .button.button-new:active, .button.button-new:focus {
+  background-color: #1993ff;
+  border-color: #1993ff;
+}
+
+.button-submit {
+  color: #fff;
+  background-color: #2398FF;
+  border-color: #2398FF;
+  padding: 0 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border: none;
+}
+.button-submit.is-disabled {
+  background: #A5AEB9;
+}
+.button-submit:hover, .button-submit:active, .button-submit:focus {
+  color: #fff;
   background-color: #1993ff;
   border-color: #1993ff;
 }
@@ -7015,10 +7062,10 @@ input[type="email"].invalid-field, input[type="number"].invalid-field, input[typ
   border-color: #ec506e;
 }
 
-.form-row {
-  margin: 0 0 25px;
+.form__row {
+  margin: 25px 0 0;
 }
-.form-row input, .form-row textarea, .form-row select {
+.form__row input, .form__row textarea, .form__row select {
   margin-bottom: 0;
 }
 
@@ -7046,7 +7093,7 @@ fieldset {
 .form-submit-wrapper {
   *zoom: 1;
   width: 100%;
-  margin-bottom: 50px;
+  margin: 20px 0 0;
 }
 .form-submit-wrapper:before, .form-submit-wrapper:after {
   content: '';
@@ -7907,4 +7954,37 @@ fieldset {
   100% {
     background-position: 20px 0;
   }
+}
+.page__content {
+  padding-top: 10px;
+  *zoom: 1;
+  width: auto;
+  max-width: 1000px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.page__content:before, .page__content:after {
+  content: '';
+  display: table;
+}
+.page__content:after {
+  clear: both;
+}
+.page__subpage {
+  display: none;
+  padding-top: 10px;
+  padding-right: 14px;
+}
+
+.page.is-subpage .page__content {
+  position: absolute;
+  width: 300px;
+}
+.page.is-subpage .page__subpage {
+  display: block;
+  margin-left: 300px;
 }

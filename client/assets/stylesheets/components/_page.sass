@@ -1,0 +1,18 @@
+.page
+    &__content
+        padding-top: 10px
+        +center(1000px, $gutter)
+
+    &__subpage
+        display: none
+        padding-top: 10px
+        padding-right: $gutter
+
+.page.is-subpage
+    .page__content
+        position: absolute
+        width: 300px
+
+    .page__subpage
+        display: block
+        margin-left: 300px
