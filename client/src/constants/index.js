@@ -1,5 +1,5 @@
 // app
-export const API_ROOT = 'http://localhost:8888/dash/server/api'
+export const API_ROOT = 'http://server/dash/server/api'
 
 // users
 export const FETCH_USERS = 'FETCH_USERS'
